@@ -1,0 +1,614 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: dark;
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Kaos Shop Appearance — interface layer.
+   Every colour below resolves from the three theme colours set in lib/theme.tsx
+   so the whole editor recolours live from the settings window.
+--------------------------------------------------------------------------- */
+
+.ks-root {
+  color: var(--ks-text);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "tnum" 1;
+}
+
+.ks-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.ks-label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ks-text-faint);
+  line-height: 1;
+}
+
+/* Surfaces ---------------------------------------------------------------- */
+
+.ks-panel {
+  background: color-mix(in srgb, var(--ks-sidebar) calc(var(--ks-panel-alpha) * 100%), transparent);
+  border: 1px solid var(--ks-border);
+  border-radius: calc(var(--ks-radius) + 4px);
+  backdrop-filter: blur(20px) saturate(120%);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--ks-text) 8%, transparent),
+    0 30px 80px rgba(0, 0, 0, 0.65),
+    0 0 calc(var(--ks-glow) * 42px) color-mix(in srgb, var(--ks-accent) calc(var(--ks-glow) * 9%), transparent);
+}
+
+.ks-card {
+  background: color-mix(in srgb, var(--ks-card) calc(var(--ks-panel-alpha) * 100%), transparent);
+  border: 1px solid var(--ks-border);
+  border-radius: var(--ks-radius);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--ks-text) 6%, transparent);
+}
+
+.ks-raised {
+  background: var(--ks-raised);
+  border: 1px solid var(--ks-border);
+  border-radius: var(--ks-radius);
+}
+
+.ks-sunken {
+  background: color-mix(in srgb, var(--ks-canvas) 70%, #000);
+  border: 1px solid var(--ks-border);
+  border-radius: var(--ks-radius);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.55);
+}
+
+.ks-active-surface {
+  background: var(--ks-selected);
+  border-color: var(--ks-accent-line);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--ks-text) 10%, transparent),
+    0 0 calc(var(--ks-glow) * 20px) color-mix(in srgb, var(--ks-accent) calc(var(--ks-glow) * 22%), transparent);
+}
+
+/* Edge wash --------------------------------------------------------------- */
+
+.ks-edge-wash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--ks-accent) calc(var(--ks-edge) * 14%), transparent),
+      transparent 28%
+    ),
+    linear-gradient(to left, color-mix(in srgb, var(--ks-accent) calc(var(--ks-edge) * 14%), transparent), transparent 28%),
+    radial-gradient(120% 90% at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.75) 100%);
+}
+
+/* Controls ---------------------------------------------------------------- */
+
+.ks-stepper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  height: 30px;
+  padding: 0 4px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--ks-canvas) 75%, #000);
+  border: 1px solid var(--ks-border);
+  border-radius: var(--ks-radius);
+}
+
+.ks-stepper-arrow {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: calc(var(--ks-radius) * 0.7);
+  color: var(--ks-text-faint);
+  transition: color var(--ks-duration) ease, background var(--ks-duration) ease;
+}
+
+.ks-stepper-arrow:hover {
+  color: var(--ks-accent);
+  background: var(--ks-accent-dim);
+}
+
+.ks-stepper-value {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ks-text);
+}
+
+.ks-stepper-track {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: color-mix(in srgb, var(--ks-text) 8%, transparent);
+}
+
+.ks-stepper-track > span {
+  display: block;
+  height: 100%;
+  background: var(--ks-accent);
+  transition: width var(--ks-duration) ease;
+}
+
+.ks-range {
+  width: 100%;
+  height: 4px;
+  appearance: none;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ks-text) 12%, transparent);
+  outline: none;
+}
+
+.ks-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--ks-accent);
+  border: 2px solid color-mix(in srgb, var(--ks-canvas) 80%, #000);
+  box-shadow: 0 0 calc(var(--ks-glow) * 12px) color-mix(in srgb, var(--ks-accent) calc(var(--ks-glow) * 60%), transparent);
+  cursor: pointer;
+}
+
+.ks-range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--ks-accent);
+  border: 2px solid color-mix(in srgb, var(--ks-canvas) 80%, #000);
+  cursor: pointer;
+}
+
+.ks-switch {
+  position: relative;
+  width: 38px;
+  height: 21px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ks-text) 14%, transparent);
+  border: 1px solid var(--ks-border);
+  transition: background var(--ks-duration) ease;
+  flex: none;
+}
+
+.ks-switch-on {
+  background: var(--ks-accent);
+  border-color: var(--ks-accent);
+  box-shadow: 0 0 calc(var(--ks-glow) * 16px) color-mix(in srgb, var(--ks-accent) calc(var(--ks-glow) * 45%), transparent);
+}
+
+.ks-switch-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 15px;
+  height: 15px;
+  border-radius: 999px;
+  background: var(--ks-text);
+  transition: transform var(--ks-duration) ease, background var(--ks-duration) ease;
+}
+
+.ks-switch-on .ks-switch-thumb {
+  transform: translateX(17px);
+  background: var(--ks-on-accent);
+}
+
+.ks-select {
+  position: relative;
+  display: block;
+}
+
+.ks-select select {
+  width: 100%;
+  height: 34px;
+  padding: 0 32px 0 10px;
+  font-size: 12px;
+  color: var(--ks-text);
+  appearance: none;
+  background: color-mix(in srgb, var(--ks-canvas) 72%, #000);
+  border: 1px solid var(--ks-border);
+  border-radius: var(--ks-radius);
+  transition: border-color var(--ks-duration) ease;
+}
+
+.ks-select select:hover {
+  border-color: var(--ks-accent-line);
+}
+
+.ks-select select option {
+  background: #0b0b0e;
+  color: #f4f4f5;
+}
+
+.ks-select-icon {
+  position: absolute;
+  right: 9px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--ks-text-faint);
+}
+
+.ks-input {
+  height: 30px;
+  width: 100%;
+  padding: 0 10px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--ks-text);
+  background: color-mix(in srgb, var(--ks-canvas) 72%, #000);
+  border: 1px solid var(--ks-border);
+  border-radius: var(--ks-radius);
+}
+
+.ks-input:focus-visible {
+  outline: 2px solid var(--ks-accent-line);
+  outline-offset: 1px;
+}
+
+.ks-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 34px;
+  padding: 0 16px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: var(--ks-radius);
+  border: 1px solid transparent;
+  transition: background var(--ks-duration) ease, color var(--ks-duration) ease, border-color var(--ks-duration) ease;
+}
+
+.ks-button-accent {
+  background: var(--ks-accent);
+  color: var(--ks-on-accent);
+  box-shadow: 0 0 calc(var(--ks-glow) * 26px) color-mix(in srgb, var(--ks-accent) calc(var(--ks-glow) * 28%), transparent);
+}
+
+.ks-button-accent:hover {
+  background: var(--ks-accent-hover);
+}
+
+.ks-button-ghost {
+  background: color-mix(in srgb, var(--ks-text) 6%, transparent);
+  border-color: var(--ks-border);
+  color: var(--ks-text);
+}
+
+.ks-button-ghost:hover {
+  background: color-mix(in srgb, var(--ks-text) 11%, transparent);
+}
+
+.ks-button-quiet {
+  color: var(--ks-accent);
+  background: transparent;
+}
+
+.ks-button-quiet:hover {
+  background: var(--ks-accent-dim);
+}
+
+.ks-button-danger {
+  color: #fca5a5;
+  background: rgba(220, 38, 38, 0.12);
+  border-color: rgba(220, 38, 38, 0.35);
+}
+
+.ks-button-danger:hover {
+  background: rgba(220, 38, 38, 0.2);
+}
+
+.ks-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 7px;
+  border-radius: calc(var(--ks-radius) * 0.7);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  color: var(--ks-text-dim);
+  background: color-mix(in srgb, var(--ks-text) 8%, transparent);
+}
+
+.ks-chip-active {
+  color: var(--ks-on-accent);
+  background: var(--ks-accent);
+}
+
+/* Tiles ------------------------------------------------------------------- */
+
+.ks-tile {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--ks-radius);
+  border: 1px solid var(--ks-border);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--ks-text) 9%, transparent), transparent 65%),
+    var(--ks-raised);
+  transition: transform var(--ks-duration) ease, border-color var(--ks-duration) ease;
+  overflow: hidden;
+}
+
+.ks-tile:hover {
+  border-color: var(--ks-accent-line);
+  transform: translateY(-1px);
+}
+
+.ks-tile-selected {
+  border-color: var(--ks-accent);
+  box-shadow:
+    inset 0 0 0 1px var(--ks-accent),
+    0 0 calc(var(--ks-glow) * 22px) color-mix(in srgb, var(--ks-accent) calc(var(--ks-glow) * 30%), transparent);
+}
+
+.ks-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--ks-text) 18%, transparent) transparent;
+}
+
+.ks-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ks-scroll::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--ks-text) 16%, transparent);
+  border-radius: 999px;
+}
+
+/* Settings window --------------------------------------------------------- */
+
+.ks-dialog {
+  background: color-mix(in srgb, var(--ks-sidebar) calc(var(--ks-panel-alpha) * 100%), transparent);
+  border: 1px solid var(--ks-border);
+  border-radius: calc(var(--ks-radius) + 6px);
+  backdrop-filter: blur(24px) saturate(120%);
+  overflow: hidden;
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--ks-text) 8%, transparent),
+    0 40px 120px rgba(0, 0, 0, 0.75),
+    0 0 calc(var(--ks-glow) * 60px) color-mix(in srgb, var(--ks-accent) calc(var(--ks-glow) * 10%), transparent);
+}
+
+.ks-icon-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--ks-radius);
+  color: var(--ks-accent);
+  background: var(--ks-accent-dim);
+  border: 1px solid var(--ks-accent-line);
+}
+
+.ks-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 9px;
+  font-size: 11.5px;
+  border-radius: var(--ks-radius);
+  border: 1px solid transparent;
+  color: var(--ks-text-dim);
+  transition: color var(--ks-duration) ease, background var(--ks-duration) ease;
+}
+
+.ks-nav-item:hover {
+  color: var(--ks-text);
+  background: color-mix(in srgb, var(--ks-text) 5%, transparent);
+}
+
+.ks-nav-item-active {
+  color: var(--ks-text);
+  background: var(--ks-selected);
+  border-color: var(--ks-accent-line);
+}
+
+/* Motion ------------------------------------------------------------------ */
+
+@keyframes ks-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ks-rise {
+  animation: ks-rise var(--ks-duration) ease both;
+}
+
+@keyframes ks-pop {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.ks-animate-in {
+  animation: ks-pop 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ks-rise,
+  .ks-animate-in {
+    animation: none;
+  }
+}
